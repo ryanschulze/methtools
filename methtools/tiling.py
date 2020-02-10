@@ -177,7 +177,7 @@ def write_to_bedfile( options, chrom, name, window ):
             # mean methylation
             denominator = window.get_methylation_sites_count()
 
-        if density == 0.0 and not options.all_windows:
+        if density == 0.0 and not options.all_windows and window.get_methylation_sites_count() == 0:
             # if we have no methylation state in that window and the option to write such states into the result file is False we do not wirte it
             return True
         elif density == 0.0:
